@@ -1,0 +1,84 @@
+:root {
+  --primary-font: #fff;
+  --secondary-font: rgb(211, 211, 211);
+  --third-font: #1768b9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-image: url("../assets/background2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+main {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--primary-font);
+  font-weight: 400;
+  margin-bottom: 80px;
+}
+
+div {
+  display: flex;
+}
+
+input {
+  height: 40px;
+  width: 300px;
+  border-radius: 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--primary-font);
+  padding-left: 20px;
+  margin-bottom: 100px;
+}
+
+input::placeholder {
+  color: var(--secondary-font);
+}
+
+input:hover,
+input:focus {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 15px;
+  padding-top: 3px;
+  padding-left: 1px;
+  margin-left: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.button-icon {
+  color: white;
+  width: 25px;
+  height: 25px;
+}
