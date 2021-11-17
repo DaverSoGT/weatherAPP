@@ -1,6 +1,10 @@
 :root {
-  --primary-font: #fff;
-  --secondary-font: rgb(211, 211, 211);
+  --primary-font-light: #000000;
+  --primary-font-dark: #ffffff;
+  --secondary-font-light: rgb(124, 124, 124);
+  --secondary-font-dark: rgb(255, 255, 255);
+  --background-color-light: rgba(255, 255, 255, 0.8);
+  --background-color-dark: rgba(0, 0, 0, 0.25);
   --third-font: #1768b9;
 }
 
@@ -12,11 +16,23 @@
 
 body {
   font-family: "Quicksand", sans-serif;
-  background-image: url("../assets/background2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  width: 100%;
+}
+
+.background-day {
+  background-image: url("../assets/backgroundDay.png");
+}
+
+.background-afternoon {
+  background-image: url("../assets/backgroundAfternoon.png");
+}
+
+.background-evening {
+  background-image: url("../assets/backgroundEvening.png");
 }
 
 main {
@@ -32,44 +48,62 @@ main {
 
 h1 {
   font-size: 2rem;
-  color: var(--primary-font);
   font-weight: 400;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
+}
+
+.light {
+  color: var(--primary-font-light);
+}
+
+.dark {
+  color: var(--primary-font-dark);
 }
 
 div {
   display: flex;
+  width: 84%;
+  justify-content: center;
+  gap: 10px;
 }
 
 input {
   height: 40px;
-  width: 300px;
+  width: 80%;
   border-radius: 15px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.8);
   color: var(--primary-font);
   padding-left: 20px;
   margin-bottom: 100px;
 }
 
 input::placeholder {
-  color: var(--secondary-font);
+  color: var(--secondary-font-light);
 }
 
-input:hover,
-input:focus {
+input:hover {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
+input:hover::placeholder {
+  color: var(--secondary-font-dark);
+}
+
+input:focus,
+input:active {
+  outline: none;
+}
+
 button {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.8);
   border: none;
   border-radius: 15px;
-  padding-top: 3px;
-  padding-left: 1px;
-  margin-left: 10px;
+  background-repeat: no-repeat;
+  background-size: 22px;
+  background-position: center;
+  width: 40px;
+  height: 40px;
 }
 
 button:hover {
@@ -77,8 +111,14 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.button-icon {
-  color: white;
-  width: 25px;
-  height: 25px;
+.icon {
+  background-image: url("../assets/gps_black.svg");
+}
+
+.icon:hover {
+  background-image: url("../assets/gps.svg");
+  background-size: 16px;
+  padding-left: 3px;
+  width: 40px;
+  height: 40px;
 }
