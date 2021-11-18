@@ -67,7 +67,7 @@ const showMessage = () => {
   async function getWeather() {
 
     try {
-      const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&APPID=${API_ID}`)
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&APPID=${API_ID}`)
       const data = await res.json()
 
       if (data.cod !== '404') {
