@@ -6,6 +6,7 @@ const date = `${today.getMonth()+1}-${today.getDate()}-${today.getFullYear()}`
 // dynamic background
 const body = document.querySelector('body')
 const h1 = document.querySelector('h1')
+const button = document.querySelector('button')
 body.className = ' '
 
 const background = () => {
@@ -49,8 +50,6 @@ const pPressure = document.createElement('p')
 const pUvi = document.createElement('p')
 const pVisibility = document.createElement('p')
 
-
-
 const sectionCard = document.createElement('section')
 const sectionDescription = document.createElement('section')
 const img = document.createElement('img')
@@ -58,11 +57,23 @@ const divContainer = document.createElement('div')
 const divCardDescription = document.createElement('div')
 const divContainerDescriptionLeft = document.createElement('div')
 const divContainerDescriptionRight = document.createElement('div')
+const backButton = document.createElement('input')
 
+backButton.type = 'button'
+backButton.value = 'Come back'
+backButton.className = 'back-button'
+backButton.addEventListener('click', function() {
+  location.reload()
+})
 
+input.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault()
+    button.click()
+  }
+})
 
 const showMessage = () => {
-
   getWeather()
   async function getWeather() {
 
@@ -74,7 +85,6 @@ const showMessage = () => {
         const res2 = await fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=metric&exclude=hourly,minutely,daily&appid=${API_ID}`)
         const data2 = await res2.json()
         cleanMain()
-        console.log(data2)
 
         cityName.className = 'city'
         cityName.appendChild(textCreate(`${data.name}, ${data.sys.country}`))
@@ -119,22 +129,14 @@ const showMessage = () => {
         )
       } else {
         cleanMain()
-        container.appendChild(title)
-        title.appendChild(textCreate('Lo sentimos, no encontramos la ciudad ingresada'))  
+        container.append(title, backButton)
+        title.appendChild(textCreate('Lo sentimos, no encontramos la ciudad ingresada'))
         throw new Error('No se pudo encontrar la ciudad')
       }
     } catch (error) {
       console.error(`Se produjo el siguiente error: ${error}`)
     }
-
-
-
-
-
   }
-  
-
-
 }
 
 background()
